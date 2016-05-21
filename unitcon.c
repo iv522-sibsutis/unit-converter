@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-int Result(int number, char str1[], char str2[], int n, char filename[]) {
+int Result(int number, char str1[], char str2[], char filename[]) {
     FILE *file;
     file = fopen(filename, "r");
-    int i = 0, j = 0, ind1, ind2;
+    int i = 0, j = 0, ind1, ind2, n;
+    char size[5];
+    fscanf(file, "%s", size);
+    n = atoi(size);
     float num, vel = 1;
     char Mas[n][n][20];
     for (i = 0; i < n; i++) {
