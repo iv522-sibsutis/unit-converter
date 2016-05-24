@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int Result(int number, char str1[], char str2[], char filename[]) {
+int Result(float number, char str1[], char str2[], char filename[]) {
     FILE *file;
     file = fopen(filename, "r");
     int i = 0, j = 0, ind1, ind2, n;
@@ -36,7 +36,7 @@ int Result(int number, char str1[], char str2[], char filename[]) {
 	}
         num = number * vel;
     }
-    printf("%f %s", num, str2);
+    printf("%f %s\n\n", num, str2);
     fclose(file);
     return 0;
 }
