@@ -8,6 +8,9 @@ bin/main: obj/main.o obj/unitcon.o
 bin/test: obj/main_test.o obj/unitcon_test.o
 	gcc -o bin/test obj/main_test.o obj/unitcon_test.o obj/unitcon.o -Wall -lm
 
+test:	bin/test
+	./bin/test
+
 obj/main.o: src/main.c
 	mkdir obj
 	gcc -c src/main.c -Wall -o obj/main.o 
