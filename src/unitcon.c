@@ -36,7 +36,6 @@ int process() {
             fn=a;
             //Check
             if ((fn!=1)&&(fn!=2)&&(fn!=3)&&(fn!=4)&&(fn!=5)&&(fn!=6)){
-				strcpy(conclusion,"\n  Не правильно введена величина!\n\n");
                 printf ("\n  Не правильно введена величина!\n\n");
                 fn=0;
                 w=0;
@@ -56,9 +55,7 @@ int process() {
                         else if ((fn==5) && ((strcmp(str1,mkl)==0)||(strcmp(str1,ml)==0)||(strcmp(str1,l)==0)||(strcmp(str1,m3)==0)) && ((strcmp(str2,mkl)==0)||(strcmp(str2,ml)==0)||(strcmp(str2,l)==0)||(strcmp(str2,m3)==0))) w=123; 
                             else if ((fn==6) && ((strcmp(str1,mkg)==0)||(strcmp(str1,mg)==0)||(strcmp(str1,g)==0)||(strcmp(str1,kg)==0)||(strcmp(str1,cwt)==0)||(strcmp(str1,t)==0)) && ((strcmp(str2,mkg)==0)||(strcmp(str2,mg)==0)||(strcmp(str2,g)==0)||(strcmp(str2,kg)==0)||(strcmp(str2,cwt)==0)||(strcmp(str2,t)==0))) w=123; else w=321;      
 
-            if (w==321) {
-			printf ("Единицы измерениия не соответствуют \n       выбранной величине!\n\n");
-				strcpy(conclusion,"Единицы измерениия не соответствуют \n       выбранной величине!\n\n");
+            if (w==321) printf ("Единицы измерениия не соответствуют \n       выбранной величине!\n\n");
             if (w==123)  Result( number, str1, str2, filename);//unitcon.		
 	    printf ("Для продолжения введите- 1(start), \nчтобы  завершить  работу c прило-\nжением введите - 2(quit): ");
             scanf ("%ld", &w);
