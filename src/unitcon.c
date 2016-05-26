@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "unitcon.h"
 
 int Result (float number, char str1[], char str2[], char filename[]) {
     int n; 

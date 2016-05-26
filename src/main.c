@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#include "unitcon.c"
+#include <unistd.h>
+#include "unitcon.h"
 
 int main() {
     long int w=0;
@@ -78,7 +79,7 @@ int main() {
         
         if ((w != 1) && (w != 2) && (w != 3)){
             printf ("              ОШИБКА\n              ВВОДА!\n\n    Приложение завершило работу!\n\n");
-            sleep (3);
+            sleep(3);
             return 0;
         }
     }
