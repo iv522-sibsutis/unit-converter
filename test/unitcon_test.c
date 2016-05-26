@@ -1,6 +1,7 @@
 #include <ctest.h>
-#include <unitcon.h>
 #include <stdio.h>
+
+#include <unitcon.h>
 
 CTEST(quadratic_equation_suite, long_transfer_nm_in_nm_fractional) {
     // Given
