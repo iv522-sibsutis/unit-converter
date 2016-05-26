@@ -64,8 +64,7 @@ int main() {
                             else if ((fn==6) && ((strcmp(str1,mkg)==0)||(strcmp(str1,mg)==0)||(strcmp(str1,g)==0)||(strcmp(str1,kg)==0)||(strcmp(str1,cwt)==0)||(strcmp(str1,t)==0)) && ((strcmp(str2,mkg)==0)||(strcmp(str2,mg)==0)||(strcmp(str2,g)==0)||(strcmp(str2,kg)==0)||(strcmp(str2,cwt)==0)||(strcmp(str2,t)==0))) w=123; else w=321;      
 
             if (w==321) printf ("Единицы измерениия не соответствуют \n       выбранной величине!\n\n");
-
-            if (w==123) Result( number, str1, str2, filename);//unitcon.c
+            if (w==123)  Result( number, str1, str2, filename);//unitcon.		
 	    printf ("Для продолжения введите- 1(start), \nчтобы  завершить  работу c прило-\nжением введите - 2(quit): ");
             scanf ("%ld", &w);
             printf ("\n");          
@@ -79,7 +78,7 @@ int main() {
         
         if ((w != 1) && (w != 2) && (w != 3)){
             printf ("              ОШИБКА\n              ВВОДА!\n\n    Приложение завершило работу!\n\n");
-            sleep(3);
+            sleep (3);
             return 0;
         }
     }
