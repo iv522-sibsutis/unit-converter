@@ -78,21 +78,7 @@ CTEST(quadratic_equation_suite, square_transfer_m_in_ha_whole) {
 	const double expected_number = 0.004500;
     ASSERT_DBL_NEAR(expected_number, num);
 }
-CTEST(quadratic_equation_suite, square_transfer_ha_in_cm) {
-    // Given
-    char a[20] = "ha";
-    char b[20] = "сm2";
-	char *file_name = "Square.txt";
-	const float number = 23.78988;
- 
-    // When
-	double num;
-    num  = Result(number, a, b, file_name);
 
-    // Then
-	const double expected_number = 2378988000.000000;
-    ASSERT_DBL_NEAR(expected_number, num);
-}
 CTEST(quadratic_equation_suite, speed_transfer_kms_in_kmh) {
     // Given
     char a[20] = "km/s";
@@ -168,3 +154,64 @@ CTEST(quadratic_equation_suite, time_transfer_month_in_hour) {
 	const double expected_number = -2191.392000;
     ASSERT_DBL_NEAR(expected_number, num);
 }
+CTEST(quadratic_equation_suite, volume_transfer_mkl_in_ml) {
+    // Given
+    char a[20] = "mkl";
+    char b[20] = "ml";
+	char *file_name = "Volume.txt";
+	const float number = -4.6578;
+ 
+    // When
+	double num;
+    num  = Result(number, a, b, file_name);
+
+    // Then
+	const double expected_number = -0.004658;
+    ASSERT_DBL_NEAR(expected_number, num);
+}
+CTEST(quadratic_equation_suite, volume_transfer_m3_in_l) {
+    // Given
+    char a[20] = "m3";
+    char b[20] = "l";
+	char *file_name = "Volume.txt";
+	const float number = 499;
+ 
+    // When
+	double num;
+    num  = Result(number, a, b, file_name);
+
+    // Then
+	const double expected_number = 499000.000000;
+    ASSERT_DBL_NEAR(expected_number, num);
+}
+CTEST(quadratic_equation_suite, weight_transfer_g_in_cwt) {
+    // Given
+    char a[20] = "g";
+    char b[20] = "cwt";
+	char *file_name = "Weight.txt";
+	const float number = 0.0000008;
+ 
+    // When
+	double num;
+    num  = Result(number, a, b, file_name);
+
+    // Then
+	const double expected_number = 0.000000;
+    ASSERT_DBL_NEAR(expected_number, num);
+}
+CTEST(quadratic_equation_suite, weight_transfer_t_in_t) {
+    // Given
+    char a[20] = "t";
+    char b[20] = "t";
+	char *file_name = "Weight.txt";
+	const float number = -9;
+ 
+    // When
+	double num;
+    num  = Result(number, a, b, file_name);
+
+    // Then
+	const double expected_number = -9;
+    ASSERT_DBL_NEAR(expected_number, num);
+}
+
