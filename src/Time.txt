@@ -1,0 +1,8 @@
+-	sec	min	hour	day	week	month	year	
+sec 	-	60	-	-	-	-	-	
+min 	-	-	60	-	-	-	-
+hour	-	-	-	24	-	-	-
+day	-	-	-	-	7	-	-
+week	-	-	-	-	-	4.348	-
+month	-	-	-	-	-	-	12
+year  	-	-	-	-	-	-	-
