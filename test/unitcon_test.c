@@ -75,7 +75,6 @@ CTEST(quadratic_equation_suite, long_transfer_cm_in_km_negative) {
 
     // Then
 	const double expected_number = -0.000290;
-	printf("%f",num);
     ASSERT_DBL_NEAR(expected_number, num);
 }
 CTEST(quadratic_equation_suite, long_transfer_km_in_m_whole) {
