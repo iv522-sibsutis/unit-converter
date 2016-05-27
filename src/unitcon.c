@@ -5,41 +5,22 @@
 #include <unistd.h>
 #include "unitcon.h"
 
-int process() {
-	float fn=0;
-    float number;
-	long int w=0;
-    char str1[20], str2[20], *filename;
-	printf ("    ║╔ ╔╗ ║║ ╦╗ ╔═ ╔╗ ╦ ╔═ ╔╗\n    ╠╣ ║║ ╠╣ ╠╣ ╠═ ║║ ║ ╠═ ║║\n    ║╚ ╚╝ ║║ ╩╝ ╚═ ╠╝ ║ ╚═ ╠╝\n\n       ╦╗ ╔═ ╔╗ ║║ ║║ ║║ ║║\n       ╠╣ ╠═ ║║ ║║ ║║ ║║ ╠╣\n       ╩╝ ╚═ ╝║ ╚╝ ╚╣ ╚╝ ║║\n\n"); 
-    printf("Для того чтобы перевести величину \nвведите- 1(start), если вы хотите \nзавершить  работу  с  приложением \nвведите - 2(quit),  чтобы  узнать\nподробнее  о  приложении  введите \n- 3(about): ");
-    scanf ("%ld", &w);
-    printf ("\n");
-    while (w!=2) {
-        if (w==3) {
-            printf ("Конвертер  величин  -  приложение,\nкоторое переводит  одну  величину\nв другую. Приложение  работает со\nследующими величинами:\n1) Длина,  растояние ( nm, mm, cm,\ndm, m, km)\n2) Скорость (m/s, km/s, km/h)\n3) Площадь(mm2, cm2, dm2, m2, ha)\n4) Время  (sec,  min,  hour,  day,\nweek, month, year)\n5) Объем (mkl, ml, l, m3)\n6) Вес (mkg, mg, g, kg, cwt, t)\n\n");
-            printf("Для того чтобы перевести величину \nвведите- 1(start), если вы хотите \nзавершить  работу  с  приложением \nвведите - 2(quit): ");
-            scanf ("%ld", &w);
-            printf ("\n");            
-        }
-        if (w==1){
-            printf("Какую  величину вы хотите перевести\n(1- Длина,  растояние;  2-Скорость; \n3-Площадь; 4-Время; 5-Объем; 6-Вес)\nВведите число соответствующее вели-\nчине: ");
-            scanf("%f", &fn);
-            printf("Из чего перевести: ");
-            scanf("%s", str1);
-            printf("Во что  перевести: ");
-            scanf("%s", str2);
-            printf("Число: ");
-            scanf("%f", &number);
-            printf ("\n");
-            int a;
-            a=fn;
-            fn=a;
-            //Check
+void err(char conclusion[], long int w) {
+	if ((w != 1) && (w != 2) && (w != 3)){
+	printf ("              ОШИБКА\n              ВВОДА!\n\n    Приложение завершило работу!\n\n");
+	strcpy(conclusion,"              ОШИБКА\n              ВВОДА!\n\n    Приложение завершило работу!\n\n");
+	sleep (3);
+	}
+}
+int process(long int w, char conclusion[], float fn,char str1[],char str2[],float number) {
+			char *filename;
             if ((fn!=1)&&(fn!=2)&&(fn!=3)&&(fn!=4)&&(fn!=5)&&(fn!=6)){
                 printf ("\n  Не правильно введена величина!\n\n");
+				strcpy(conclusion,"\n  Не правильно введена величина!\n\n");
                 fn=0;
                 w=0;
-            } else w=123;  
+            } else w=123;
+			if (w==0) return 0;  
             if (fn==1) filename="Long.txt";
             if (fn==2) filename="Speed.txt";
             if (fn==3) filename="Square.txt";
@@ -55,25 +36,10 @@ int process() {
                         else if ((fn==5) && ((strcmp(str1,mkl)==0)||(strcmp(str1,ml)==0)||(strcmp(str1,l)==0)||(strcmp(str1,m3)==0)) && ((strcmp(str2,mkl)==0)||(strcmp(str2,ml)==0)||(strcmp(str2,l)==0)||(strcmp(str2,m3)==0))) w=123; 
                             else if ((fn==6) && ((strcmp(str1,mkg)==0)||(strcmp(str1,mg)==0)||(strcmp(str1,g)==0)||(strcmp(str1,kg)==0)||(strcmp(str1,cwt)==0)||(strcmp(str1,t)==0)) && ((strcmp(str2,mkg)==0)||(strcmp(str2,mg)==0)||(strcmp(str2,g)==0)||(strcmp(str2,kg)==0)||(strcmp(str2,cwt)==0)||(strcmp(str2,t)==0))) w=123; else w=321;      
 
-            if (w==321) printf ("Единицы измерениия не соответствуют \n       выбранной величине!\n\n");
+            if (w==321){ printf ("Единицы измерениия не соответствуют \n       выбранной величине!\n\n");
+				strcpy(conclusion,"Единицы измерениия не соответствуют \n       выбранной величине!\n\n");
+			}
             if (w==123)  Result( number, str1, str2, filename);//unitcon.		
-	    printf ("Для продолжения введите- 1(start), \nчтобы  завершить  работу c прило-\nжением введите - 2(quit): ");
-            scanf ("%ld", &w);
-            printf ("\n");          
-        }
-        if ((w>=-1000000)&&(w<=1000000)&&(w != 1) && (w != 2) && (w != 3)){
-            printf ("              ОШИБКА\n              ВВОДА!\n\n");
-            printf ("Для продолжения введите- 1(start), \nчтобы  завершить  работу c прило-\nжением введите - 2(quit): ");
-            scanf ("%ld", &w);
-            printf ("\n");
-        }
-        
-        if ((w != 1) && (w != 2) && (w != 3)){
-            printf ("              ОШИБКА\n              ВВОДА!\n\n    Приложение завершило работу!\n\n");
-            sleep (3);
-            return 0;
-        }
-    }
 	return 0;
 }
 double Result (float number, char str1[], char str2[], char filename[]) {

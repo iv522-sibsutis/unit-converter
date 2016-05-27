@@ -1,21 +1,65 @@
 #include <ctest.h>
-#include <stdio.h>
-
 #include <unitcon.h>
 
-CTEST(quadratic_equation_suite, long_transfer_nm_in_nm_fractional) {
+CTEST(quadratic_equation_suite,test_err) {
+	// Given
+	long int w = 999;
+
+	// When
+	char conclusion [150]= "\0";
+	err(conclusion,w);
+
+	// Then
+	const char *expected_conclusion = ("              ОШИБКА\n              ВВОДА!\n\n    Приложение завершило работу!\n\n");
+    CTEST_LOG(expected_conclusion, conclusion);
+}
+
+CTEST(quadratic_equation_suite,unsuitable_units) {
+	// Given
+	char a[20] = "m";
+	char b[20] = "cm";
+	const float number = 10;
+	long int w = 1;
+	const float fn = 78;
+
+	// When
+	char conclusion [150]= "\0";
+	w = process(w,conclusion,fn,a,b, number);
+
+    // Then
+	const char *expected_conclusion = "Единицы измерениия не соответствуют \n       выбранной величине!\n\n";
+	CTEST_LOG(expected_conclusion, conclusion);
+}
+
+CTEST(quadratic_equation_suite, incorrectly_entered_value_of) {
     // Given
-    char a[20] = "nm";
-    char b[20] = "nm";
+	char a[20] = "m";
+	char b[20] = "cm";
+	const float number = 10;
+	long int w = 1;
+	const float fn = 78;
+
+	// When
+	char conclusion [150]= "\0";
+	w = process(w,conclusion,fn,a,b, number);
+
+	// Then
+	const char *expected_conclusion = "\n  Не правильно введена величина!\n\n";
+	CTEST_LOG(expected_conclusion, conclusion);
+}
+CTEST(quadratic_equation_suite, long_transfer_nm_in_nm_fractional) {
+	// Given
+	char a[20] = "nm";
+	char b[20] = "nm";
 	char *file_name = "Long.txt";
 	const float number = 24.7;
  
-    // When
+	// When
 	double num;
-    num = Result(number, a, b, file_name);
-    // Then
+	num = Result(number, a, b, file_name);
+	// Then
 	const double expected_number = 24.70000;
-    ASSERT_DBL_NEAR(expected_number, num);
+	ASSERT_DBL_NEAR(expected_number, num);
 }
 
 CTEST(quadratic_equation_suite, long_transfer_cm_in_km_negative) {
