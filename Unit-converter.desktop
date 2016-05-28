@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=
+Terminal=true
+Name=Unit-converter
+Exec=/home/danil/TRPO/курсач/unit-converter/bin/main.sh
+Type=Application
+Icon=/home/danil/TRPO/курсач/unit-converter/Untitled-12222_1.png
