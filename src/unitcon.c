@@ -63,6 +63,10 @@ double Result(float number, char str1[], char str2[], char filename[]) {
 	char *filename1, *filename2, *filename3, *filename4, *filename5, *filename6;
 	FILE *file;
 	file = fopen (filename, "r");
+	if (file == NULL) {
+	    printf("Error! File not opened");
+	    exit(1);
+	}
 	filename1 = "Long.txt"; filename2 = "Speed.txt"; filename3 = "Square.txt"; 
 	filename4 = "Time.txt"; filename5 = "Volume.txt"; filename6 = "Weight.txt";
 	if (strcmp (filename, filename1) == 0) n = 7;
