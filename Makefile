@@ -9,7 +9,7 @@ bin/test: obj/main_test.o obj/unitcon_test.o
 	gcc -o bin/test obj/main_test.o obj/unitcon_test.o obj/unitcon.o -Wall -lm
 
 test:	bin/test
-	./bin/test
+	cd bin && ./test && cd ..
 
 obj/main.o: src/main.c
 	mkdir obj
